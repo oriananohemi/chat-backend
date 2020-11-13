@@ -18,11 +18,13 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   if (req.query.error === "ok") {
-    response.error(req, res, "error simulado", 400);
+    response.error(req, res, "error simulado", 400, "Error de Prueba");
   } else {
     response.success(req, res, "Creado Correctamente", 201);
   }
 });
+
+app.use("/app", express.static("public"));
 
 // app.use("/", (req, res) => {
 //   res.send("Hola");
