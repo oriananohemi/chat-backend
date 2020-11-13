@@ -1,17 +1,28 @@
 const express = require("express");
-
+const bodyParser = require("body-parser");
 const router = express.Router();
+
+const response = require("./network/response");
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(router);
 
 router.get("/", (req, res) => {
-  res.send("Lista de mensajes");
+  // console.log(req.query);
+  // console.log(req.body);
+  // console.log(req.headers);
+  res.header({
+    "custom-header": "Nuestro valor personalizado",
+  });
+  response.success(req, res);
+  // res.send("Lista de mensajes");
+  // res.status(201).send();
 });
 
 router.post("/", (req, res) => {
-  res.send("Mensaje añadido");
+  res.send("Mensaje" + req.body.text + "añadido");
 });
 
 // app.use("/", (req, res) => {
