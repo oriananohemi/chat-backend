@@ -10,19 +10,18 @@ app.use(bodyParser.json());
 app.use(router);
 
 router.get("/", (req, res) => {
-  // console.log(req.query);
-  // console.log(req.body);
-  // console.log(req.headers);
   res.header({
     "custom-header": "Nuestro valor personalizado",
   });
-  response.success(req, res);
-  // res.send("Lista de mensajes");
-  // res.status(201).send();
+  response.success(req, res, "lista de mensajes");
 });
 
 router.post("/", (req, res) => {
-  res.send("Mensaje" + req.body.text + "añadido");
+  if (req.query.error === "ok") {
+    response.error(req, res, "error simulado", 400);
+  } else {
+    response.success(req, res, "Creado Correctamente", 201);
+  }
 });
 
 // app.use("/", (req, res) => {
