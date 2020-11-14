@@ -6,7 +6,7 @@ const db = require("./db");
 const router = require("./network/routes");
 
 const uri =
-  "mongodb+srv://db_user_pnode:alexander@cluster0.w5af8.mongodb.net/message?retryWrites=true&w=majority";
+  "mongodb+srv://db_user_pnode:alexander@cluster0.w5af8.mongodb.net/chat_telegram_platzi?retryWrites=true&w=majority";
 
 db(uri);
 
