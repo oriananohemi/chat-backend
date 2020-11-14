@@ -1,7 +1,7 @@
 const socketIO = require("socket.io");
 const socket = {};
 
-const connect = () => {
+const connect = (server) => {
   socket.io = socketIO(server);
 };
 
