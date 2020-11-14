@@ -32,4 +32,15 @@ router.post("/", (req, res) => {
     });
 });
 
+router.patch("/:id", (req, res) => {
+  controller
+    .updateMessage(req.params.id, req.body.text)
+    .then((data) => {
+      response.success(req, res, data, 200);
+    })
+    .cath((e) => {
+      response.error(req, res, "Error Interno", 500, e);
+    });
+});
+
 module.exports = router;
