@@ -7,6 +7,7 @@ const addMessage = (user, message) => {
       return reject("Datos incorrectos");
     } else {
       const fullMessage = {
+        chat: chat,
         user: user,
         message: message,
         date: new Date(),
