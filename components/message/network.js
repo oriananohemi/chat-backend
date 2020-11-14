@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
 
 router.patch("/:id", (req, res) => {
   controller
-    .updateMessage(req.params.id, req.body.text)
+    .updateMessage(req.params.id, req.body.message)
     .then((data) => {
       response.success(req, res, data, 200);
     })
