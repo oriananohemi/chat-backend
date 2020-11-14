@@ -1,5 +1,9 @@
 const store = require("./store");
 
+const listUsers = () => {
+  return store.list();
+};
+
 const addUser = (name) => {
   if (!name) {
     return Promise.reject("Invalid name");
@@ -14,4 +18,5 @@ const addUser = (name) => {
 
 module.exports = {
   addUser,
+  listUsers,
 };
